@@ -1,0 +1,14 @@
+@import "input";
+@import "button";
+@import "checkbox";
+@import "dropdown";
+@import "radio";
+@import "select";
+@import "textarea";
+
+.form-check {
+    input,
+    label {
+      cursor: pointer;
+    }
+}

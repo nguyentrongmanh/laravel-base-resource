@@ -1,4 +1,4 @@
-@extends('dashboard.errorBase')
+@extends('layouts.error')
 
 @section('content')
 
