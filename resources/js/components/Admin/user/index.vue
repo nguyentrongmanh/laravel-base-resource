@@ -69,7 +69,7 @@
                 <div class="mb-3">
                   <label class="form-label">Button</label>
                   <div>
-                    <custom-button :label="'submit'" />
+                    <custom-button :label="'submit'" @click="test"/>
                   </div>
                 </div>
               </div>
@@ -91,6 +91,10 @@ export default {
     };
   },
   props: {},
-  methods: {},
+  methods: {
+    async test() {
+      await console.log('test babel');
+    }
+  },
 };
 </script>
