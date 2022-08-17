@@ -42,7 +42,8 @@ Route::group([
     'namespace' => "Admin",
     'middleware' => 'admin'
 ], function () {
-    Route::get('/', 'HomeController@index')->name('admin.home');
+    Route::get('/', 'UserController@index')->name('admin.user.index');
+    Route::get('/form', 'HomeController@index')->name('admin.form');
 });
 
 Auth::routes();

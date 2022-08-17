@@ -3,7 +3,7 @@
 @section('content')
 <login
 :route="{{ json_encode([
-    'urlAdminHome' => route('admin.home'),
+    'urlAdminHome' => route('admin.user.index'),
     'urlAdminLogin' => route('adminLoginPost'),
 ]) }}"
 >

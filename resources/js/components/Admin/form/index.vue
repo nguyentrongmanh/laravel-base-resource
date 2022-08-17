@@ -34,7 +34,7 @@
                 <div class="mb-3">
                   <label class="form-label">Default radio example</label>
                   <custom-radio
-                    :customClass="'form-check-inline'"
+                    :classes="'form-check-inline'"
                     :options="[
                       {
                         value: 'One',
@@ -55,12 +55,12 @@
                   <label class="form-label">Default checkbox example</label>
                   <div>
                     <custom-checkbox
-                      :customClass="'form-check-inline'"
+                      :classes="'form-check-inline'"
                       :title="'One'"
                       :name="'checkbox1'"
                     />
                     <custom-checkbox
-                      :customClass="'form-check-inline'"
+                      :classes="'form-check-inline'"
                       :title="'Two'"
                       :name="'checkbox2'"
                     />
@@ -69,7 +69,7 @@
                 <div class="mb-3">
                   <label class="form-label">Button</label>
                   <div>
-                    <custom-button :label="'submit'" @click="test"/>
+                    <custom-button :label="'submit'" @click="test" :classes="'btn-primary'"/>
                   </div>
                 </div>
               </div>

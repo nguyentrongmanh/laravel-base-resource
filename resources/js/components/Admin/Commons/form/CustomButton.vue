@@ -1,47 +1,57 @@
 <template>
   <button
-    :style="`width: ${width}; height: ${height};`"
+    :style="`width: ${setWith}; height: ${setHeight};`"
     class="btn"
-    :class="customClass"
+    :class="classes"
     :type="`${type}`"
     @click="$emit('click')"
   >
     {{ label }}
+    <slot name="body"></slot>
   </button>
 </template>
 
 <script>
 export default {
-  name: 'CustomButton',
+  name: "CustomButton",
   props: {
     width: {
-      type: String,
-      default: '100px',
+      type: String | Number,
+      default: "100px",
       required: false,
     },
     height: {
-      type: String,
-      default: '40px',
+      type: String | Number,
+      default: "40px",
       required: false,
     },
     label: {
       type: String,
-      default: '保存',
+      default: "",
       required: false,
-    },
-    customClass: {
-      type: String,
-      default: 'btn-primary',
-      require: false,
     },
     type: {
       type: String,
-      default: 'button',
-      require: 'true',
+      default: "button",
+      require: "true",
     },
     classes: {
       type: String,
-      default: '',
+      default: "",
+    },
+  },
+  computed: {
+    setWith() {
+      if (typeof this.width == "number") {
+        return this.width + "px";
+      }
+      return this.width;
+    },
+    setHeight() {
+      if (typeof this.height == "number") {
+        return this.height + "px";
+      }
+      return this.height;
     },
   },
 };

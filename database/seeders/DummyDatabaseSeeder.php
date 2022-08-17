@@ -15,6 +15,7 @@ class DummyDatabaseSeeder extends Seeder
     {
         $this->call([
             DummyAdminSeeder::class,
+            DummyUserSeeder::class,
         ]);
     }
 }

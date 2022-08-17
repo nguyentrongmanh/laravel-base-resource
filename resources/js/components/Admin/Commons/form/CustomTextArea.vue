@@ -2,6 +2,7 @@
   <div>
     <textarea
       class="custom-textarea form-control"
+      :class="classes"
       v-model="textValue"
       :name="name"
       :placeholder="placeholder"
@@ -68,7 +69,11 @@ export default {
     systemError: {
       type: String,
       required: false,
-    }
+    },
+    classes: {
+      type: String,
+      default: '',
+    },
   },
   methods: {
     updateValue(e) {

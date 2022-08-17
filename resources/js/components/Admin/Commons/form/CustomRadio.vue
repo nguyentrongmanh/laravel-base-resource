@@ -2,7 +2,7 @@
   <div>
     <div
       class="form-check"
-      :class="customClass"
+      :class="classes"
       v-for="(item, index) in options"
       :key="index"
     >
@@ -50,7 +50,7 @@ export default {
       type: Array,
       required: true,
     },
-    customClass: {
+    classes: {
       type: String,
     },
   },

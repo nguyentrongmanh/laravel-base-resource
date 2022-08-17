@@ -6,7 +6,7 @@ import Vue from "vue";
 import VeeValidate from "vee-validate";
 Vue.use(VeeValidate, { locale: "ja" });
 
-import UserList from "./components/Admin/user/index.vue"
+import FormIndex from "./components/Admin/form/index.vue"
 import Login from "./components/Admin/auth/Login.vue"
 
 //import form
@@ -24,13 +24,19 @@ Vue.component('custom-radio', CustomRadio);
 Vue.component('custom-checkbox', CustomCheckbox);
 Vue.component('custom-button', CustomButton);
 
+import PageSize from './components/Admin/Commons/page-size.vue'
+import InputSearch from './components/Admin/Commons/input-search.vue'
+
+Vue.component('page-size', PageSize);
+Vue.component('input-search', InputSearch);
+
 new Vue({
     created() {
     },
     el: "#app",
     components: {
         Login,
-        UserList,
+        FormIndex,
     },
     methods: {},
     mounted() {}

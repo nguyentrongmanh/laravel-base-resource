@@ -30,6 +30,7 @@
     <meta name="theme-color" content="#ffffff">
     <!-- Icons-->
     <link href="{{ asset('css/free.min.css') }}" rel="stylesheet"> <!-- icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Main styles for this application-->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/admin.css') }}" rel="stylesheet">

@@ -1,5 +1,5 @@
 <template>
-  <div class="dropdown" :style="`width: ${width}`">
+  <div class="dropdown" :style="`width: ${width}`" :class="classes">
     <button
       type="button"
       class="btn btn-custom font-weight-normal w-100"
@@ -27,6 +27,10 @@ export default {
     },
     width: {
       type: String,
+    },
+    classes: {
+      type: String,
+      default: '',
     },
   },
 };

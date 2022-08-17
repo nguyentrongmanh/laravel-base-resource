@@ -2,6 +2,7 @@
   <div>
     <select
       class="custom-select form-control"
+      :class="classes"
       :style="`width: ${setWith}`"
       v-model="selected"
       :name="name"
@@ -68,6 +69,10 @@ export default {
     options: {
       type: Array | Object,
       required: false,
+    },
+    classes: {
+      type: String,
+      default: '',
     },
   },
   data() {

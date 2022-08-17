@@ -1,5 +1,5 @@
 <template>
-    <div class="form-check" :class="customClass">
+    <div class="form-check" :class="classes">
       <input
         type="checkbox"
         class="form-check-input"
@@ -47,8 +47,9 @@ export default {
       type: Boolean,
       default: false
     },
-    customClass: {
+    classes: {
       type: String,
+      default: '',
     },
   },
   watch: {
