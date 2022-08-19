@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+    public function dashboard()
+    {
+        $breadcrumbs = ['Dashboard'];
+        return view('admin.index', compact('breadcrumbs'));
+    }
+
     public function index()
     {
         $breadcrumbs = ['Form'];

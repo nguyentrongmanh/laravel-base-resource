@@ -13,8 +13,8 @@ class Controller extends BaseController
 
     public static function newListLimit($query)
     {
-        $newSizeLimit = 10;
-        $arrPageSize = [10, 20, 50, 100];
+        $newSizeLimit = PAGE_SIZE_DEFAULT;
+        $arrPageSize = PAGE_SIZE_LIMIT;
         if (isset($query['limit'])) {
             $newSizeLimit = (($query['limit'] === '') || !in_array($query['limit'], $arrPageSize)) ? $newSizeLimit : $query['limit'];
         }

@@ -69,7 +69,7 @@
                 <div class="mb-3">
                   <label class="form-label">Button</label>
                   <div>
-                    <custom-button :label="'submit'" @click="test" :classes="'btn-primary'"/>
+                    <custom-button :label="'submit'" :classes="'btn-primary'"/>
                   </div>
                 </div>
               </div>
@@ -91,10 +91,6 @@ export default {
     };
   },
   props: {},
-  methods: {
-    async test() {
-      await console.log('test babel');
-    }
-  },
+  methods: {},
 };
 </script>

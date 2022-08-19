@@ -5,11 +5,27 @@
     </div>
     <ul class="c-sidebar-nav">
         <li class="c-sidebar-nav-item">
-            <a class="c-sidebar-nav-link" href="index.html">
+            <a class="c-sidebar-nav-link" href="{{route('admin.dashboard')}}">
                 <svg class="c-sidebar-nav-icon">
                     <use xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-speedometer"></use>
                 </svg>
                 Dashboard
+            </a>
+        </li>
+        <li class="c-sidebar-nav-item">
+            <a class="c-sidebar-nav-link" href="{{route('user.index')}}">
+                <svg class="c-sidebar-nav-icon">
+                    <use xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-speedometer"></use>
+                </svg>
+                User list
+            </a>
+        </li>
+        <li class="c-sidebar-nav-item">
+            <a class="c-sidebar-nav-link" href="{{route('admin.form')}}">
+                <svg class="c-sidebar-nav-icon">
+                    <use xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-speedometer"></use>
+                </svg>
+                Form
             </a>
         </li>
     </ul>

@@ -18,10 +18,10 @@
         {{ typeof item == 'object' ? item.label : item }}
       </option>
     </select>
-    <div class="input-group text-error" v-if="error">
+    <div class="input-group text-error text-danger" v-if="error">
       {{ error }}
     </div>
-    <div class="input-group text-error" v-if="systemError">
+    <div class="input-group text-error text-danger" v-if="systemError">
       {{ systemError }}
     </div>
   </div>

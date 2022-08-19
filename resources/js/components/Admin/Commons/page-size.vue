@@ -12,11 +12,9 @@
 <script>
 export default {
   data() {
-    return {
-      pageSize: [10, 20, 50, 100],
-    };
+    return {};
   },
-  props: ["pageLimit"],
+  props: ["pageSize", "pageLimit"],
   methods: {
     onChange(event) {
       let pathname = window.location.pathname;

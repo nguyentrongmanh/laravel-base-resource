@@ -19,6 +19,9 @@
         item.label
       }}</label>
     </div>
+    <div class="error text-error text-danger" v-if="error">
+      {{ error }}
+    </div>
   </div>
 </template>
 

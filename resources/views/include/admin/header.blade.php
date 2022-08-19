@@ -16,7 +16,7 @@
                     <svg class="c-icon mr-1" style="width: 14px;height:14px;">
                         <use xlink:href="{{ url('/icons/sprites/free.svg#cil-account-logout') }}"></use>
                     </svg>
-                    ログアウト
+                    logout
                 </button>
             </form>
         </li>

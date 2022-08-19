@@ -1,9 +1,10 @@
 <template>
   <form method="GET" :action="url" class="input-search">
     <input type="hidden" name="limit" :value="pageLimit" />
-    <div class="input-group">
+    <div class="input-group d-flex">
       <custom-input
         :height="35"
+        :width="'calc(100% - 40px)'"
         :name="'search_input'"
         :type="'text'"
         :value="dataQuery.search_input"
@@ -13,7 +14,7 @@
         <custom-button
           :classes="'btn-primary'"
           :type="'submit'"
-          :width="'auto'"
+          :width="40"
           :height="35"
         >
           <template slot="body">
@@ -28,8 +29,5 @@
 <script>
 export default {
   props: ["url", "pageLimit", "dataQuery"],
-  mounted() {
-    console.log(this.dataQuery);
-  },
 };
 </script>

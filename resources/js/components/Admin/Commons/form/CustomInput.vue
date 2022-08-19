@@ -2,21 +2,21 @@
   <div>
     <input
       :type="type"
-      class="custom-input form-control"
+      class="custom-input form-control w-100 h-100"
       v-model="inputValue"
       :name="name"
       :id="name"
       :placeholder="placeholder"
       :maxlength="maxlength"
       @change="updateValue"
-      :style="`width: ${setWith}; height: ${setHeight}`"
       :class="classes"
       :disabled="disabled"
+      :style="`width: ${setWith}; height: ${setHeight}`"
     />
-    <div class="error text-error" v-if="error">
+    <div class="error text-error text-danger" v-if="error">
       {{ error }}
     </div>
-    <div class="error text-error" v-if="systemError">
+    <div class="error text-error text-danger" v-if="systemError">
       {{ systemError }}
     </div>
   </div>

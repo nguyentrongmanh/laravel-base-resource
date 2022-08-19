@@ -10,10 +10,10 @@
       :style="`width: ${setWith}; height: ${setHeight}`"
       @input="updateValue"
     />
-    <div v-if="error" class="error text-error">
+    <div v-if="error" class="error text-error text-danger">
       {{ error }}
     </div>
-    <div v-if="systemError" class="error text-error">
+    <div v-if="systemError" class="error text-error text-danger">
       {{ systemError }}
     </div>
   </div>
