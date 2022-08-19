@@ -29,7 +29,6 @@ class DummyUserSeeder extends Seeder
                 'birth_date' => $birthDay,
                 'sex' => rand(1, 3),
                 'remember_token' => null,
-                'icon' => '/images/user/default-avatar.png',
                 'created_at' => $date,
                 'updated_at' => $date,
                 'deleted_at' => NULL

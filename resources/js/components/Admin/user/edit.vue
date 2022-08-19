@@ -121,7 +121,7 @@ export default {
       email: this.data.user.email,
       birthDate: this.data.user.birth_date,
       sex: this.data.user.sex,
-      icon: this.data.user.icon,
+      icon: this.data.user.media_image,
     };
   },
   props: ["route", "data"],

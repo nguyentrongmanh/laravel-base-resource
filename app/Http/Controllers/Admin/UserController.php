@@ -27,6 +27,7 @@ class UserController extends Controller
             });
         }
         $users = $users->sortable(['created_at' => 'desc'])->paginate($pageLimit);
+        Log::info($users->toArray());
         return view('admin.user.index', [
             'users' => $users,
             'request' => $request,
@@ -58,7 +59,7 @@ class UserController extends Controller
             $user->email_verified_at = Carbon::now();
             $user->save();
             if ($request->hasFile('icon')) {
-                $user->icon = uploadImage(UploadFilePath::USER, $user->id, $request->icon);
+                $user->addMedia($request->icon)->toMediaCollection('user');
             }
             $user->save();
 
@@ -94,10 +95,11 @@ class UserController extends Controller
             $user->sex =  $request->sex;
             $user->birth_date =  $request->birthDate;
             $user->email_verified_at = Carbon::now();
-            if ($request->hasFile('icon')) {
-                $user->icon = uploadImage(UploadFilePath::USER, $user->id, $request->icon);
-            }
             $user->save();
+            if ($request->hasFile('icon')) {
+                $user->clearMediaCollection('user');
+                $user->addMedia($request->icon)->toMediaCollection('user');
+            }
 
             DB::commit();
             return response()->json(['status' => StatusCode::OK], StatusCode::OK);

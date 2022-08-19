@@ -38,7 +38,7 @@
                                         @foreach ($users as $index => $user)
                                             <tr>
                                                 <td class="text-left">
-                                                    <img class="icon-user" src="{{ $user->icon }}" alt="">
+                                                    <img class="icon-user" src="{{ $user->media_image }}" alt="">
                                                 </td>
                                                 <td class="text-left">{{ $user->name }}</td>
                                                 <td class="text-left">{{ $user->email }}</td>

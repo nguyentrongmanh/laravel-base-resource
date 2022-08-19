@@ -8,11 +8,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Kyslik\ColumnSortable\Sortable;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
 
-class  User extends Authenticatable
+class  User extends Authenticatable implements HasMedia
 {
-    use HasFactory, Notifiable, SoftDeletes, Sortable;
+    use HasFactory, Notifiable, SoftDeletes, Sortable, InteractsWithMedia;
     /**
      * The attributes that are mass assignable.
      *
@@ -35,6 +37,8 @@ class  User extends Authenticatable
         'sex',
     ];
 
+    protected $appends = ['media_image'];
+
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -47,5 +51,14 @@ class  User extends Authenticatable
 
     public function getGenderAttribute() {
         return strtolower(Gender::getKey($this->sex));
+    }
+
+    public function getMediaImageAttribute()
+    {
+        $image = $this->getFirstMediaUrl('user');
+        if (!empty($image)) {
+            return $image;
+        }
+        return '/images/user/default-avatar.png';
     }
 }

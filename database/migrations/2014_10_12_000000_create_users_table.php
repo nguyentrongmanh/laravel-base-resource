@@ -21,7 +21,6 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->date('birth_date')->nullable();
             $table->tinyInteger('sex')->default(1)->nullable();
-            $table->string('icon', 255)->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
