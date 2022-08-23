@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Enums\StatusCode;
 use App\Enums\UploadFilePath;
 use App\Http\Controllers\Controller;
+use App\Mail\CreateAccountUser;
 use App\Models\User;
 use Carbon\Carbon;
 use Exception;
@@ -12,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -50,10 +52,11 @@ class UserController extends Controller
     {
         try {
             DB::beginTransaction();
+            $passwordUser = bin2hex(random_bytes(4));
             $user = new User();
             $user->name = $request->name;
             $user->email = $request->email;
-            $user->password =  Hash::make($request->password);
+            $user->password =  Hash::make($passwordUser);
             $user->sex =  $request->sex;
             $user->birth_date =  $request->birthDate;
             $user->email_verified_at = Carbon::now();
@@ -62,6 +65,7 @@ class UserController extends Controller
                 $user->addMedia($request->icon)->toMediaCollection('user');
             }
             $user->save();
+            Mail::send(new CreateAccountUser($user->name ,$user->email, $passwordUser));
 
             DB::commit();
             return response()->json(['status' => StatusCode::OK], StatusCode::OK);

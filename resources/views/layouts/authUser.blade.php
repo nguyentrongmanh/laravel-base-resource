@@ -33,8 +33,8 @@
         <!-- Main styles for this application-->
         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
         <link href="{{ asset('css/auth.css') }}" rel="stylesheet">
-        <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
-        <script src="{{ asset('js/admin.js') }}" defer></script>
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <script src="{{ asset('js/app.js') }}" defer></script>
 
         @yield('css')
         <script>

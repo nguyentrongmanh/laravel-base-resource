@@ -133,15 +133,15 @@ export default {
         if (valid) {
           this.isLoading = true;
           axios
-            .post(this.route.urlAdminLogin, formData, {
+            .post(this.route.urlLogin, formData, {
               header: {
                 "Content-Type": "multipart/form-data",
               },
             })
             .then((response) => {
               this.isLoading = false;
-              if (response.data.previous == this.route.urlAdminLogin) {
-                window.location.href = this.route.urlAdminHome;
+              if (response.data.previous == this.route.urlLogin) {
+                window.location.href = this.route.urlHome;
               } else {
                 window.location.href = response.data.previous;
               }

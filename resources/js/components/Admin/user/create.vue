@@ -95,17 +95,6 @@
                   />
                 </div>
                 <div class="mb-3">
-                  <label class="form-label">password</label>
-                  <custom-input
-                    :width="'100%'"
-                    :height="40"
-                    name="password"
-                    v-model="password"
-                    v-validate="'required|max:255'"
-                    :error="errors.first('password')"
-                  />
-                </div>
-                <div class="mb-3">
                   <div class="d-flex justify-content-center">
                     <custom-button
                       :label="'submit'"
@@ -130,7 +119,6 @@ export default {
       isLoading: false,
       name: "",
       email: "",
-      password: "",
       birthDate: "",
       sex: "",
       icon: "",

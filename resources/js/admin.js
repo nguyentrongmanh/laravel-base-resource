@@ -14,7 +14,7 @@ Vue.use(VeeValidate, { locale: "ja" });
 Vue.use(VueSweetalert2);
 
 import FormIndex from "./components/Admin/form/index.vue"
-import Login from "./components/Admin/auth/Login.vue"
+import Login from "./components/Admin/auth/login.vue"
 import UserCreate from "./components/Admin/user/create.vue"
 import UserEdit from "./components/Admin/user/edit.vue"
 

@@ -1,5 +1,10 @@
-@extends('layouts.auth')
+@extends('layouts.authUser')
 
 @section('content')
-<login></login>
+<login-user
+:route="{{ json_encode([
+    'urlHome' => route('top'),
+    'urlLogin' => url('/login'),
+]) }}">
+</login-user>
 @endsection

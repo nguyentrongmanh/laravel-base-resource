@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Enums\StatusCode;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Http\JsonResponse;
 
 class RegisterController extends Controller
 {
@@ -52,6 +56,9 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'birthDate' => ['required'],
+            'sex' => ['required'],
+            'icon' => ['required'],
         ]);
     }
 
@@ -67,8 +74,27 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'sex' =>  $data['sex'],
+            'birth_date' =>  $data['birthDate'],
         ]);
-        $user->assignRole('user');
+        $user->addMedia($data['icon'])->toMediaCollection('user');
+        $user->save();
+        $user->sendEmailVerificationNotification();
         return $user;
+    }
+
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        if ($response = $this->registered($request, $user)) {
+            return $response;
+        }
+
+        return $request->wantsJson()
+                    ? new JsonResponse([], StatusCode::OK)
+                    : redirect($this->redirectPath());
     }
 }

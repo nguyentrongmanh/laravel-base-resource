@@ -48,4 +48,8 @@ Route::group([
     Route::resource('/user', 'UserController');
 });
 
-Auth::routes();
+Auth::routes(['verify' => true]);
+
+Route::get('/verify-remind', function () {
+    return view('auth.verify');
+})->name('verifyRemind');

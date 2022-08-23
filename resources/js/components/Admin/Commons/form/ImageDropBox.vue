@@ -42,7 +42,7 @@
       accept="image/*"
       :disabled="isDisabled"
     />
-    <div class="error text-error text-danger" role="alert">
+    <div class="error text-error text-danger" role="alert" v-if="error">
       {{ error }}
     </div>
   </div>
