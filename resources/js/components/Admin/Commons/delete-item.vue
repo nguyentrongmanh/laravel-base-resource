@@ -5,7 +5,7 @@
       @click="showAlert"
       style="width: 100%"
     >
-      <i class="fa-thin fa-trash-can"></i>delete
+      <i class="fa-thin fa-trash-can"></i>消去
     </a>
   </div>
 </template>

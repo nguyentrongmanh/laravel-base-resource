@@ -6,8 +6,8 @@
         <div class="card-group">
           <div class="card p-4">
             <div class="card-body">
-              <h1>Login</h1>
-              <p class="text-muted">Sign In to your account</p>
+              <h1>ログイン</h1>
+              <p class="text-muted">アカウントにサインインする</p>
               <form method="POST" @submit.prevent="submit">
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
@@ -26,6 +26,7 @@
                     class="form-control"
                     v-validate="'required|max:255|email'"
                     v-model="email"
+                    data-vv-as="Eメール"
                   />
                   <div
                     class="invalid-feedback"
@@ -59,6 +60,7 @@
                     class="form-control"
                     v-validate="'required|min:6|max:16'"
                     v-model="password"
+                    data-vv-as="パスワード"
                   />
                   <div
                     class="invalid-feedback"
@@ -92,12 +94,12 @@
                     type="checkbox"
                   />
                   <label for="remember-me" class="text-info"
-                    ><span class="hiragino-sans-w3 pl">remember me</span></label
+                    ><span class="hiragino-sans-w3 pl">私を覚えてますか</span></label
                   >
                 </div>
                 <div class="col-6">
                   <button type="submit" class="btn btn-primary px-4">
-                    login
+                    ログインする
                   </button>
                 </div>
               </form>

@@ -18,7 +18,7 @@
                             </div>
                             <div class="col-12 col-md-4 mt-2 mt-md-0"></div>
                             <div class="col-10 col-md-2 d-md-flex justify-content-end">
-                                <a class="btn btn-primary" href="{{ route('user.create') }}">create</a>
+                                <a class="btn btn-primary" href="{{ route('user.create') }}">ユーザーを作成</a>
                             </div>
                         </div>
                         @if (!$users->isEmpty())
@@ -26,11 +26,11 @@
                                 <table class="table table-responsive-sm table-striped border">
                                     <thead>
                                         <tr>
-                                            <th class="text-left">icon</th>
-                                            <th class="text-left">@sortablelink('name', 'name')</th>
-                                            <th class="text-left">@sortablelink('email', 'email')</th>
-                                            <th class="text-left">@sortablelink('birth_date', 'birth date')</th>
-                                            <th class="text-left">@sortablelink('gender', 'gender')</th>
+                                            <th class="text-left">アバター</th>
+                                            <th class="text-left">@sortablelink('name', ' ユーザー名')</th>
+                                            <th class="text-left">@sortablelink('email', ' Eメール')</th>
+                                            <th class="text-left">@sortablelink('birth_date', ' 誕生日')</th>
+                                            <th class="text-left">@sortablelink('gender', ' 性別')</th>
                                             <th class="text-left"></th>
                                         </tr>
                                     </thead>
@@ -46,15 +46,15 @@
                                                 <td class="text-left">{{ $user->gender }}</td>
                                                 <td class="text-left">
                                                     <div class="btn-group">
-                                                        <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
+                                                        <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">アクション</button>
                                                         <ul class="dropdown-menu dropdown-menu-right">
                                                             <li>
-                                                                <a class="dropdown-item" href="{{ route('user.edit', $user->id) }}"><i class="fa-thin fa-pen-to-square"></i>edit</a>
+                                                                <a class="dropdown-item" href="{{ route('user.edit', $user->id) }}"><i class="fa-thin fa-pen-to-square"></i>編集</a>
                                                             </li>
                                                             <li>
                                                                 <delete-item
                                                                     :delete-action="{{ json_encode(route('user.destroy', $user->id)) }}"
-                                                                    :message-confirm="{{ json_encode('Are you sure you want to delete?') }}"
+                                                                    :message-confirm="{{ json_encode('消去してもよろしいですか？') }}"
                                                                 >
                                                                 </delete-item>
                                                             </li>

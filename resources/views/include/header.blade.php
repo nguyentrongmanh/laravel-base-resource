@@ -5,12 +5,12 @@
                 <form action="{{ url('/logout') }}" method="POST">
                     @csrf
                     <button type="submit" class="btn btn-ghost-dark btn-block btn-hover">
-                        logout
+                        ログアウト
                     </button>
                 </form>
             @else
                 <a href="{{ url('/login') }}" class="btn btn-ghost-dark btn-block btn-hover">
-                    login
+                    ログインする
                 </a>
             @endif
         </li>

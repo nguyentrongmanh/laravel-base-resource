@@ -59,6 +59,9 @@ class LoginController extends Controller
         $validator = Validator::make($request->all(), [
             'email' => 'required|max:255|email',
             'password' => 'required|min:6|max:16',
+        ])->setAttributeNames([
+            'email' => '郵便物',
+            'password' => 'パスワード',
         ]);
         if ($validator->fails()) {
             $message = array_combine($validator->errors()->keys(), $validator->errors()->all());
@@ -69,13 +72,13 @@ class LoginController extends Controller
         if (auth()->attempt($credentials, $remember)) {
             if (empty(auth()->user()->email_verified_at)) {
             auth()->logout();
-            return response()->json(['message' => 'Verify Your Email Address'], StatusCode::BAD_REQUEST);
+            return response()->json(['message' => 'あなたのメールアドレスを確認してください。'], StatusCode::BAD_REQUEST);
         }
             $url = Session::get("previous_user");
             return response()->json(["status" => StatusCode::OK, "previous" => $url], StatusCode::OK);
 
         } else {
-            return response()->json(['error' => 'your username and password are wrong.'], StatusCode::BAD_REQUEST);
+            return response()->json(['message' => 'ユーザー名とパスワードが間違っています。'], StatusCode::BAD_REQUEST);
         }
 
     }

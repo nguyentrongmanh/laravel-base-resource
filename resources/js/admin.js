@@ -3,13 +3,15 @@ require('./bootstrap');
 
 import Vue from "vue";
 
-import VeeValidate from "vee-validate";
+import VeeValidate, { Validator } from "vee-validate";
+import messJa from "./messValidate/ja";
 import Datepicker from 'vue2-datepicker';
 import VueSweetalert2 from 'vue-sweetalert2';
 import 'vue2-datepicker/index.css';
 import 'sweetalert2/dist/sweetalert2.min.css';
 
 Vue.component('date-picker', Datepicker);
+Validator.localize('ja', messJa);
 Vue.use(VeeValidate, { locale: "ja" });
 Vue.use(VueSweetalert2);
 

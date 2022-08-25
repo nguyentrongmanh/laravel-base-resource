@@ -6,7 +6,7 @@
         'urlRegister' => url('/register'),
     ]) }}"
         :data="{{ json_encode([
-            'listEmail' => isset($listEmail) ? $listEmail : [],
+            'listEmail' => isset($listEmail) ? $listEmail : []
         ]) }}">
     </register-user>
 @endsection

@@ -1,11 +1,13 @@
 require('./bootstrap');
 // require('@coreui/coreui/dist/js/coreui.bundle.min');
-import VeeValidate from "vee-validate";
+import VeeValidate, { Validator } from "vee-validate";
+import messJa from "./messValidate/ja";
 import VueSweetalert2 from 'vue-sweetalert2';
 import Datepicker from 'vue2-datepicker';
 import 'vue2-datepicker/index.css';
 import PageLoading from "./components/Admin/Commons/PageLoading.vue"
 
+Validator.localize('ja', messJa);
 Vue.use(VeeValidate, { locale: "ja" });
 Vue.use(VueSweetalert2);
 Vue.component('date-picker', Datepicker);

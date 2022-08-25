@@ -20,7 +20,7 @@ class UserController extends Controller
     public function index(Request $request)
     {
         $pageLimit = $this->newListLimit($request);
-        $breadcrumbs = ['User list'];
+        $breadcrumbs = ['ユーザー一覧'];
         $users = new User();
         if (isset($request['search_input'])) {
             $users = $users->where(function ($query) use ($request) {
@@ -40,7 +40,7 @@ class UserController extends Controller
 
     public function create()
     {
-        $breadcrumbs = ['User create'];
+        $breadcrumbs = ['ユーザー作成'];
         $listEmail = User::get()->pluck('email');
         return view('admin.user.create', [
             'breadcrumbs' => $breadcrumbs,
@@ -78,7 +78,7 @@ class UserController extends Controller
 
     public function edit($id)
     {
-        $breadcrumbs = ['User edit'];
+        $breadcrumbs = ['ユーザー編集'];
         $user = User::find($id);
         $listEmail = User::where('id', '!=', $id)->get()->pluck('email');
         return view('admin.user.edit', [

@@ -6,18 +6,18 @@
         <div class="card mx-4">
           <div class="card-body p-4">
             <form method="POST" @submit.prevent="submit">
-              <h1>Register</h1>
-              <p class="text-muted">Create your account</p>
+              <h1>登録</h1>
+              <p class="text-muted">アカウントを作成</p>
               <div class="mb-3">
-                <label class="form-label">user name</label>
+                <label class="form-label">ユーザー名</label>
                 <input
                   class="form-control"
                   type="text"
-                  placeholder="Name"
+                  placeholder="ユーザー名"
                   name="name"
                   v-model="name"
                   v-validate="'required|max:255'"
-                  data-vv-as="user name"
+                  data-vv-as="ユーザー名"
                 />
                 <div
                   class="invalid-feedback"
@@ -35,15 +35,15 @@
                 </div>
               </div>
               <div class="mb-3">
-                <label class="form-label">avatar</label>
+                <label class="form-label">アバター</label>
                 <image-drop-box
                   name="icon"
                   :width="100"
                   :height="100"
-                  text="upload image"
+                  text="画像をアップロード"
                   v-model="icon"
                   v-validate="'required'"
-                  data-vv-as="avatar"
+                  data-vv-as="アバター"
                 />
                 <div
                   class="invalid-feedback"
@@ -61,27 +61,27 @@
                 </div>
               </div>
               <div class="mb-3">
-                <label class="form-label">gender</label>
+                <label class="form-label">性別</label>
                 <custom-radio
                   :classes="'form-check-inline'"
                   name="sex"
                   v-model="sex"
+                  data-vv-as="性別"
                   :options="[
                     {
                       value: 1,
-                      label: 'male',
+                      label: '男性',
                     },
                     {
                       value: 2,
-                      label: 'female',
+                      label: '女性',
                     },
                     {
                       value: 3,
-                      label: 'other',
+                      label: '未選択',
                     },
                   ]"
                   v-validate="'required'"
-                  data-vv-as="gender"
                 />
                 <div
                   class="invalid-feedback"
@@ -99,13 +99,13 @@
                 </div>
               </div>
               <div class="mb-3">
-                <label class="form-label w-100">birth day</label>
+                <label class="form-label w-100">誕生日</label>
                 <date-picker
                   input-class="form-control"
                   name="birthDate"
                   v-model="birthDate"
                   v-validate="'required'"
-                  data-vv-as="birth day"
+                  data-vv-as="誕生日"
                   format="YYYY-MM-DD"
                   valueType="YYYY-MM-DD"
                 />
@@ -118,13 +118,14 @@
                 </div>
               </div>
               <div class="mb-3">
-                <label class="form-label">E-Mail Address</label>
+                <label class="form-label">郵便物</label>
                 <input
                   class="form-control"
                   type="text"
-                  placeholder="E-Mail Address"
+                  placeholder="郵便物"
                   name="email"
                   v-model="email"
+                  data-vv-as="郵便物"
                   v-validate="{
                     required: true,
                     email: true,
@@ -148,16 +149,17 @@
                 </div>
               </div>
               <div class="mb-3">
-                <label class="form-label">Password</label>
+                <label class="form-label">パスワード</label>
                 <input
                   class="form-control"
                   type="password"
-                  placeholder="Password"
+                  placeholder="パスワード"
                   name="password"
                   v-model="password"
-                  v-validate="'required|max:255'"
+                  v-validate="'required|min:6|max:255'"
                   autocomplete="new-password"
                   ref="password"
+                  data-vv-as="パスワード"
                 />
                 <div
                   class="invalid-feedback"
@@ -175,15 +177,15 @@
                 </div>
               </div>
               <div class="mb-4">
-                <label class="form-label">Confirm Password</label>
+                <label class="form-label">パスワードを認証する</label>
                 <input
                   class="form-control"
                   type="password"
-                  placeholder="Confirm Password"
+                  placeholder="パスワードを認証する"
                   name="password_confirmation"
                   v-model="passwordConfirmation"
-                  v-validate="'required|max:255|confirmed:password'"
-                  data-vv-as="confirm password"
+                  v-validate="'required|min:6|max:255|confirmed:password'"
+                  data-vv-as="パスワードを認証する"
                 />
                 <div
                   class="invalid-feedback"
@@ -201,7 +203,7 @@
                 </div>
               </div>
               <button class="btn btn-block btn-success" type="submit">
-                Register
+                登録
               </button>
             </form>
           </div>

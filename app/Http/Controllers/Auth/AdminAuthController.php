@@ -65,6 +65,9 @@ class AdminAuthController extends Controller
         $validator = Validator::make($request->all(), [
             'email' => 'required|max:255|email',
             'password' => 'required|min:6|max:16',
+        ])->setAttributeNames([
+            'email' => 'Eメール',
+            'password' => 'パスワード',
         ]);
         if ($validator->fails()) {
             $message = array_combine($validator->errors()->keys(), $validator->errors()->all());
@@ -77,7 +80,7 @@ class AdminAuthController extends Controller
             return response()->json(["status" => StatusCode::OK, "previous" => $url], StatusCode::OK);
 
         } else {
-            return response()->json(['error' => 'your username and password are wrong.'], StatusCode::BAD_REQUEST);
+            return response()->json(['message' => 'ユーザー名とパスワードが間違っています。'], StatusCode::BAD_REQUEST);
         }
 
     }

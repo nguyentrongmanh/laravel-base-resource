@@ -17,7 +17,7 @@
                 <svg class="c-sidebar-nav-icon">
                     <use xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-speedometer"></use>
                 </svg>
-                User list
+                ユーザー一覧
             </a>
         </li>
         <li class="c-sidebar-nav-item">

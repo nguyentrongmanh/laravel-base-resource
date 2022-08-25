@@ -10,7 +10,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Kyslik\ColumnSortable\Sortable;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
-
+use App\Notifications\ResetPassword as ResetPasswordNotification;
+use App\Notifications\VerifyEmail;
+use Illuminate\Support\Facades\Auth;
 
 class  User extends Authenticatable implements HasMedia
 {
@@ -49,8 +51,18 @@ class  User extends Authenticatable implements HasMedia
         'remember_token',
     ];
 
+    public function sendEmailVerificationNotification()
+    {
+        $this->notify(new VerifyEmail(Auth::user()));
+    }
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPasswordNotification($token));
+    }
+
     public function getGenderAttribute() {
-        return strtolower(Gender::getKey($this->sex));
+        return Gender::getDescription($this->sex);
     }
 
     public function getMediaImageAttribute()

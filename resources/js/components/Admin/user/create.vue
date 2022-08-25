@@ -6,12 +6,12 @@
         <div class="col-sm-12">
           <div class="card mb-4">
             <div class="card-header">
-              <strong>Create user</strong>
+              <strong>ユーザーを作成</strong>
             </div>
             <div class="card-body">
               <div class="example">
                 <div class="mb-3">
-                  <label class="form-label">user name</label>
+                  <label class="form-label">ユーザー名</label>
                   <custom-input
                     :width="'100%'"
                     name="name"
@@ -19,55 +19,55 @@
                     v-model="name"
                     v-validate="'required|max:255'"
                     :error="errors.first('name')"
-                    data-vv-as="user name"
+                    data-vv-as="ユーザー名"
                   />
                 </div>
                 <div class="mb-3">
-                  <label class="form-label">avatar</label>
+                  <label class="form-label">アバター</label>
                   <image-drop-box
                     name="icon"
                     :width="100"
                     :height="100"
-                    text="upload image"
+                    text="画像をアップロード"
                     v-model="icon"
                     v-validate="'required'"
                     :error="errors.first('icon')"
-                    data-vv-as="avatar"
+                    data-vv-as="アバター"
                   />
                 </div>
                 <div class="mb-3">
-                  <label class="form-label">gender</label>
+                  <label class="form-label">性別</label>
                   <custom-radio
                     :classes="'form-check-inline'"
                     name="sex"
                     v-model="sex"
+                    data-vv-as="性別"
                     :options="[
                       {
                         value: 1,
-                        label: 'male',
+                        label: '男性',
                       },
                       {
                         value: 2,
-                        label: 'female',
+                        label: '女性',
                       },
                       {
                         value: 3,
-                        label: 'other',
+                        label: '未選択',
                       },
                     ]"
                     v-validate="'required'"
                     :error="errors.first('sex')"
-                    data-vv-as="gender"
                   />
                 </div>
                 <div class="mb-3">
-                  <label class="form-label w-100">birth day</label>
+                  <label class="form-label w-100">誕生日</label>
                   <date-picker
                     input-class="form-control"
                     name="birthDate"
                     v-model="birthDate"
                     v-validate="'required'"
-                    data-vv-as="birth day"
+                    data-vv-as="誕生日"
                     format="YYYY-MM-DD"
                     valueType="YYYY-MM-DD"
                   />
@@ -79,12 +79,13 @@
                   </div>
                 </div>
                 <div class="mb-3">
-                  <label class="form-label">email</label>
+                  <label class="form-label">Eメール</label>
                   <custom-input
                     :width="'100%'"
                     :height="40"
                     name="email"
                     v-model="email"
+                    data-vv-as="Eメール"
                     v-validate="{
                       required: true,
                       email: true,
@@ -97,7 +98,7 @@
                 <div class="mb-3">
                   <div class="d-flex justify-content-center">
                     <custom-button
-                      :label="'submit'"
+                      :label="'参加する'"
                       @click="register"
                       :classes="'btn-primary'"
                     />
